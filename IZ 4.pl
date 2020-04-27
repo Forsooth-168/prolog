@@ -7,7 +7,7 @@ iz4:- List = [_, _, _, _],
     opposite(List, [rezchikov, _], [_, rezchik]),
     on_right(List, [slesarev, _], [_, tocar]),
     on_left(List, [_, kuznec], [Who, Prof]),
-    write(Who), write(','), write(Prof).
+    write(Who), write(','), write(Prof),!.
 
 in_list([El|_], El).
 in_list([_|T], El):- in_list(T, El).
