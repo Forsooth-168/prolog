@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "IZ 9", "IZ 9.fsproj", "{EA6B25C6-100F-4384-AA32-7AD9D8EF326D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA6B25C6-100F-4384-AA32-7AD9D8EF326D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6B25C6-100F-4384-AA32-7AD9D8EF326D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6B25C6-100F-4384-AA32-7AD9D8EF326D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6B25C6-100F-4384-AA32-7AD9D8EF326D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA455DB7-6413-428E-A54E-B27A4DA35180}
+	EndGlobalSection
+EndGlobal
