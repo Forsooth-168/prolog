@@ -1,4 +1,4 @@
-iz5:- write('Введите n: '), read(N), write('Введите k: '), read(K), tell('file.txt'), trace, choose_letters1([a,b,c,d,e,f], N, K).
+iz5:- write('Введите n: '), read(N), write('Введите k: '), read(K), tell('file.txt'), /*trace,*/ choose_letters1([a,b,c,d,e,f], N, K).
 iz5:- told.
 
 /*Выбор трех букв, которые будут повторятся по 2 раза*/
@@ -21,9 +21,11 @@ sochet(Sub_set,K,[_|Set]):-sochet(Sub_set,K,Set).
 perm_p(Word,Letters2,LetterK,K):- perm_p1(Letters2,0,LetterK,K,Word).
 
 perm_p1([],_,[LetterK|_],K,Word):- perm_p2(LetterK,0,K,Word).
-perm_p1([_|T],1,LetterK,K,Word):- perm_p1(T,0,LetterK,K,Word).
+perm_p1(_,Counter,_,_,_):- Counter > 2, !, fail.
+perm_p1([_|T],2,LetterK,K,Word):- perm_p1(T,0,LetterK,K,Word).
 perm_p1([H|T],Counter,LetterK,K,CurWord):- insert_rep_let(H, CurWord, CurWord1), Counter1 is Counter + 1, perm_p1([H|T],Counter1,LetterK,K,CurWord1),!.
 
+perm_p2(_,Counter,K,_):- Counter > K, !, fail.
 perm_p2(_,K,K,Word):- write_str(Word), write("\n"), !, fail.
 perm_p2(LetterK,Counter,K,Word):- insert_rep_let(LetterK,Word,Word1), Counter1 is Counter+1, perm_p2(LetterK,Counter1,K,Word1).
 
