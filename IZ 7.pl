@@ -3,10 +3,10 @@
 akinator:- readChocolatesFromFile, q1(A1), q2(A2), q3(A3), q4(A4), q5(A5), determineChocolate(A1,A2,A3,A4,A5), removeFacts, !.
 
 readChocolatesFromFile:- see('chocolates.txt'), rcff, seen.
-rcff:-  readln(Chocolate), Chocolate \= [], readln(Answers), assertFacts(Chocolate, Answers), rcff.
+rcff:- readln(Chocolate), Chocolate \= [], readln(Answers), assertFacts(Chocolate, Answers), rcff.
 rcff:- !.
 
-/*Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ñ„Ð°ÐºÑ‚Ð¾Ð² Ð² Ð±Ð°Ð·Ñƒ Ð´Ð°Ð½Ð½Ñ‹Ñ…*/
+/*Äîáàâëåíèå ôàêòîâ â áàçó äàííûõ*/
 assertFacts(Chocolate,Answers):- elemByIndex(Answers,1,A1), asserta(country(Chocolate,A1)), elemByIndex(Answers,2,A2), asserta(form(Chocolate,A2)), elemByIndex(Answers,3,A3), asserta(color(Chocolate,A3)), elemByIndex(Answers,4,A4), asserta(whenFounded(Chocolate,A4)), elemByIndex(Answers,5,A5), asserta(porous(Chocolate,A5)).
 
 elemByIndex(List, Ind, Elem):- elemByIndex(List, 1, Ind, Elem).
@@ -14,57 +14,57 @@ elemByIndex([], _, _, _):- !, fail.
 elemByIndex([H|_],Ind, Ind, H):- !.
 elemByIndex([_|T], CurInd, Ind, X):- NewInd is CurInd + 1, elemByIndex(T, NewInd, Ind, X).
 
-q1(A1):- write("1.ÐšÐ°ÐºÐ¾Ð¹ ÑÑ‚Ñ€Ð°Ð½Ðµ Ð¿Ñ€Ð¸Ð½Ð°Ð´Ð»ÐµÐ¶Ð¸Ñ‚ Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ð±Ñ€ÐµÐ½Ð´?"),
-    nl, write("1.Ð“ÐµÑ€Ð¼Ð°Ð½Ð¸Ð¸"),
-    nl, write("2.Ð Ð¾ÑÑÐ¸Ð¸"),
-    nl, write("3.Ð¨Ð²ÐµÐ¹Ñ†Ð°Ñ€Ð¸Ð¸"),
-    nl, write("4.ÐÐ¼ÐµÑ€Ð¸ÐºÐµ"),
-    nl, write("5.Ð£ÐºÑ€Ð°Ð¸Ð½Ðµ"),
-    nl, write("6.Ð‘Ñ€Ð¸Ñ‚Ð°Ð½Ð¸Ð¸"),
-    nl, read(A1).
+q1(A1):- write("1.Êàêîé ñòðàíå ïðèíàäëåæèò äàííûé áðåíä?"),
+nl, write("1.Ãåðìàíèè"),
+nl, write("2.Ðîññèè"),
+nl, write("3.Øâåéöàðèè"),
+nl, write("4.Àìåðèêå"),
+nl, write("5.Óêðàèíå"),
+nl, write("6.Áðèòàíèè"),
+nl, read(A1).
 
-q2(A2):- write("2.ÐšÐ°ÐºÐ¾Ð²Ð° Ñ„Ð¾Ñ€Ð¼Ð° Ð¿Ð»Ð¸Ñ‚ÐºÐ¸?"),
-    nl, write("1.ÐšÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð½Ð°Ñ"),
-    nl, write("2.ÐŸÑ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð°Ñ"),
-    nl, write("3.ÐÐ¸ Ð¾Ð´Ð¸Ð½ Ð¸Ð· Ð²Ñ‹ÑˆÐµÐ¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÐµÐ½Ð½Ñ‹Ñ… Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ð¾Ð²"),
-    nl, read(A2).
+q2(A2):- write("2.Êàêîâà ôîðìà ïëèòêè?"),
+nl, write("1.Êâàäðàòíàÿ"),
+nl, write("2.Ïðÿìîóãîëüíàÿ"),
+nl, write("3.Íè îäèí èç âûøåïåðå÷èñëåííûõ âàðèàíòîâ"),
+nl, read(A2).
 
-q3(A3):- write("3.ÐšÐ°ÐºÐ¾Ð¹(-Ð¸Ðµ) Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¹(-Ñ‹Ðµ) Ñ†Ð²ÐµÑ‚(Ð°) Ð¾Ð±ÐµÑ€Ñ‚ÐºÐ¸?"),
-    nl, write("1.ÐœÐ¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð»ÑŽÐ±Ñ‹Ð¼ Ð² Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ð²ÐºÑƒÑÐ°"),
-    nl, write("2.Ð¤Ð¸Ð¾Ð»ÐµÑ‚Ð¾Ð²Ñ‹Ð¹"),
-    nl, write("3.Ð¨Ð¾ÐºÐ¾Ð»Ð°Ð´Ð½Ñ‹Ð¹"),
-    nl, write("4.Ð“Ð¾Ð»ÑƒÐ±Ð¾Ð¹"),
-    nl, write("5.ÐšÑ€Ð°ÑÐ½Ñ‹Ð¹"),
-    nl, write("6.Ð–ÐµÐ»Ñ‚Ñ‹Ð¹"),
-    nl, write("7.Ð–ÐµÐ»Ñ‚Ñ‹Ð¹ Ð¸ Ñ‡ÐµÑ€Ð½Ñ‹Ð¹"),
-    nl, write("8.Ð‘ÐµÐ»Ñ‹Ð¹"),
-    nl, write("9.ÐÐ¸ Ð¾Ð´Ð¸Ð½ Ð¸Ð· Ð¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÐµÐ½Ð½Ñ‹Ñ… Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚Ð¾Ð²"),
-    nl, read(A3).
+q3(A3):- write("3.Êàêîé(-èå) îñíîâíîé(-ûå) öâåò(à) îáåðòêè?"),
+nl, write("1.Ìîæåò áûòü ëþáûì â çàâèñèìîñòè îò âêóñà"),
+nl, write("2.Ôèîëåòîâûé"),
+nl, write("3.Øîêîëàäíûé"),
+nl, write("4.Ãîëóáîé"),
+nl, write("5.Êðàñíûé"),
+nl, write("6.Æåëòûé"),
+nl, write("7.Æåëòûé è ÷åðíûé"),
+nl, write("8.Áåëûé"),
+nl, write("9.Íè îäèí èç ïåðå÷èñëåííûõ âàðèàíòîâ"),
+nl, read(A3).
 
-q4(A4):- write("4.ÐšÐ¾Ð³Ð´Ð° Ð¿Ð¾ÑÐ²Ð¸Ð»ÑÑ Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ð±Ñ€ÐµÐ½Ð´?"),
-    nl, write("1.Ð’ Ð¿ÐµÑ€Ð²Ð¾Ð¹ Ð¿Ð¾Ð»Ð¾Ð²Ð¸Ð½Ðµ 19-Ð³Ð¾ Ð²ÐµÐºÐ°"),
-    nl, write("2.Ð’Ð¾ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¿Ð¾Ð»Ð¾Ð²Ð¸Ð½Ðµ 19-Ð³Ð¾ Ð²ÐµÐºÐ°"),
-    nl, write("3.Ð’ Ð¿ÐµÑ€Ð²Ð¾Ð¹ Ð¿Ð¾Ð»Ð¾Ð²Ð¸Ð½Ðµ 20-Ð³Ð¾ Ð²ÐµÐºÐ°"),
-    nl, write("4.Ð’Ð¾ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¿Ð¾Ð»Ð¾Ð²Ð¸Ð½Ðµ 20-Ð³Ð¾ Ð²ÐµÐºÐ°"),
-    nl, write("5.Ð’ 2000-Ñ…"),
-    nl, read(A4).
+q4(A4):- write("4.Êîãäà ïîÿâèëñÿ äàííûé áðåíä?"),
+nl, write("1.Â ïåðâîé ïîëîâèíå 19-ãî âåêà"),
+nl, write("2.Âî âòîðîé ïîëîâèíå 19-ãî âåêà"),
+nl, write("3.Â ïåðâîé ïîëîâèíå 20-ãî âåêà"),
+nl, write("4.Âî âòîðîé ïîëîâèíå 20-ãî âåêà"),
+nl, write("5.Â 2000-õ"),
+nl, read(A4).
 
-q5(A5):- write("5.Ð’Ð°Ñˆ ÑˆÐ¾ÐºÐ¾Ð»Ð°Ð´ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ñ€Ð¸ÑÑ‚Ñ‹Ð¼?"),
-    nl, write("1.Ð”Ð°"),
-    nl, write("2.ÐÐµÑ‚"),
-    nl, read(A5).
+q5(A5):- write("5.Âàø øîêîëàä ìîæåò áûòü ïîðèñòûì?"),
+nl, write("1.Äà"),
+nl, write("2.Íåò"),
+nl, read(A5).
 
-/*ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¾Ñ‚Ð²ÐµÑ‚Ð¾Ð² Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ*/
-determineChocolate(A1,A2,A3,A4,A5):- country(Chocolate,A1), form(Chocolate,A2), color(Chocolate,A3), whenFounded(Chocolate,A4), porous(Chocolate,A5), write("Ð’Ñ‹ Ð·Ð°Ð³Ð°Ð´Ð°Ð»Ð¸ "), write_str(Chocolate), !.
-determineChocolate(A1,A2,A3,A4,A5):-write("ÐžÐ±ÑŠÐµÐºÑ‚ Ð½Ðµ Ð±Ñ‹Ð» Ð½Ð°Ð¹Ð´ÐµÐ½ Ð² Ð±Ð°Ð·Ðµ Ð´Ð°Ð½Ð½Ñ‹Ñ…. Ð¥Ð¾Ñ‚Ð¸Ñ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ?\n1.Ð”Ð°\n2.ÐÐµÑ‚\n"), read(A), checkAnswer(A,[A1,A2,A3,A4,A5]).
+/*Ïðîâåðêà îòâåòîâ ïîëüçîâàòåëÿ*/
+determineChocolate(A1,A2,A3,A4,A5):- country(Chocolate,A1), form(Chocolate,A2), color(Chocolate,A3), whenFounded(Chocolate,A4), porous(Chocolate,A5), write("Âû çàãàäàëè "), write_str(Chocolate), !.
+determineChocolate(A1,A2,A3,A4,A5):-write("Îáúåêò íå áûë íàéäåí â áàçå äàííûõ. Õîòèòå äîáàâèòü?\n1.Äà\n2.Íåò\n"), read(A), checkAnswer(A,[A1,A2,A3,A4,A5]).
 
-/*ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ°, Ñ…Ð¾Ñ‡ÐµÑ‚ Ð»Ð¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¾Ð±ÑŠÐµÐºÑ‚*/
-checkAnswer(1,List):- write("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ñ€ÐµÐ½Ð´Ð°: "), read_str(Chocolate), addChocolate(Chocolate,List).
+/*Ïðîâåðêà, õî÷åò ëè ïîëüçîâàòåëü äîáàâèòü îáúåêò*/
+checkAnswer(1,List):- write("Ââåäèòå íàçâàíèå áðåíäà: "), read_str(Chocolate), addChocolate(Chocolate,List).
 checkAnswer(_,_):- !.
 
 addChocolate(Chocolate,List):- append('chocolates.txt'), nl, name(Choc,Chocolate), write(Choc), nl, write_list(List), told.
 
-/*Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ñ„Ð°ÐºÑ‚Ð¾Ð²*/
+/*Óäàëåíèå ôàêòîâ*/
 removeFacts:- removeCountry, removeForm, removeColor, removeWhenFounded, removePorous.
 
 removeCountry:- repeat,(country(X,Y) -> retract(country(X,Y)), fail;X=nil,Y=nil, !).
@@ -75,7 +75,7 @@ removeColor:- repeat,(color(X,Y) -> retract(color(X,Y)), fail;X=nil,Y=nil, !).
 
 removeWhenFounded:- repeat,(whenFounded(X,Y) -> retract(whenFounded(X,Y)), fail;X=nil,Y=nil, !).
 
-removePorous:-  repeat,(porous(X,Y) -> retract(porous(X,Y)), fail;X=nil,Y=nil, !).
+removePorous:- repeat,(porous(X,Y) -> retract(porous(X,Y)), fail;X=nil,Y=nil, !).
 
 write_list([]):-!.
 write_list([H|T]):- write(H), write(" "), write_list(T).
