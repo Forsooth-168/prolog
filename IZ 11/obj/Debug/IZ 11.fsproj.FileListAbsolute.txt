@@ -1,0 +1,24 @@
+C:\Учёбка\prolog\IZ 11\bin\Debug\IZ_11.exe.config
+C:\Учёбка\prolog\IZ 11\bin\Debug\IZ_11.XML
+C:\Учёбка\prolog\IZ 11\bin\Debug\IZ_11.exe
+C:\Учёбка\prolog\IZ 11\bin\Debug\IZ_11.pdb
+C:\Учёбка\prolog\IZ 11\bin\Debug\FSharp.Core.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\System.ValueTuple.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\FSharp.Core.xml
+C:\Учёбка\prolog\IZ 11\bin\Debug\cs\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\de\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\es\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\fr\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\it\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\ja\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\ko\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\pl\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\pt-BR\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\ru\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\tr\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\zh-Hans\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\bin\Debug\zh-Hant\FSharp.Core.resources.dll
+C:\Учёбка\prolog\IZ 11\obj\Debug\IZ 11.fsprojAssemblyReference.cache
+C:\Учёбка\prolog\IZ 11\obj\Debug\IZ 11.fsproj.CopyComplete
+C:\Учёбка\prolog\IZ 11\obj\Debug\IZ_11.exe
+C:\Учёбка\prolog\IZ 11\obj\Debug\IZ_11.pdb
